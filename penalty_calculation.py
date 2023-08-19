@@ -189,12 +189,12 @@ class PenaltyCalculation:
     
 def main():
 
-    #WEBSITE_LINK = sys.argv[1]
+    WEBSITE_LINK = sys.argv[1]
+    #WEBSITE_LINK = "https://live-timing.com/race2.php?r=238717&u=0"
     #processed_result = PenaltyCalculation.process_link(WEBSITE_LINK)
     #print(type(WEBSITE_LINK))
-    WEBSITE_LINK = "https://live-timing.com/race2.php?r=238717&u=0"
 
-    # driver = webdriver.Chrome()
+    #driver = webdriver.Chrome()
     driver.get(WEBSITE_LINK)
     driver.maximize_window()
 
@@ -247,8 +247,8 @@ def main():
     #print(PenaltyCalculation.calculate_penalty())
 
     
-    print(json.dumps(PenaltyCalculation.all_racers_scores()))
-
+    #print(json.dumps(PenaltyCalculation.all_racers_scores()))
+    print (PenaltyCalculation.all_racers_scores())
 
 if __name__ == '__main__':
      main()

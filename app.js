@@ -20,7 +20,7 @@ app.post('/process_link', (req, res) => {
   const link = req.body.link;
 
   // Spawn a Python process and capture its output
-  const pythonProcess = spawn('python', ['penalty_calculation.py', link]);
+  const pythonProcess = spawn('python3', ['penalty_calculation.py', link]);
 
   let output = '';
 

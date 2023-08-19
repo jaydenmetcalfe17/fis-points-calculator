@@ -14,9 +14,11 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
             },
             body: JSON.stringify({ link: link })
         });
+        
         const data = await response.json();
         console.log("response: ", data)
         document.getElementById('result').textContent = data.result;
+
     } catch (error) {
         console.error('Error:', error);
     }
