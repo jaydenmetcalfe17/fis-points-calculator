@@ -23,10 +23,13 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
 
         //document.getElementById('result').textContent = JSON.stringify(data.result);
         //document.getElementById('result').textContent = scores
+        var table = document.getElementById('result')
 
         for (var i=0; i<scores.length; i++) {
-            //document.getElementById('result').append("<td>" + scores[i] + "</td></tr>");
-            document.getElementById('result').append(scores[i]);
+            var row = table.insertRow(-1)
+            var cell = row.insertCell(0)
+            var score = scores[i]
+            cell.innerHTML = score
           }
     
 
