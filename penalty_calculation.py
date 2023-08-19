@@ -247,8 +247,12 @@ def main():
     #print(PenaltyCalculation.calculate_penalty())
 
     
-    #print(json.dumps(PenaltyCalculation.all_racers_scores()))
-    print (PenaltyCalculation.all_racers_scores())
+    print(json.dumps(PenaltyCalculation.all_racers_scores()))
+    #scores = json.dumps(PenaltyCalculation.all_racers_scores())
+    #print("var jsonstr = '{}' ".format(scores) )
+
+
+    #print (PenaltyCalculation.all_racers_scores())
 
 if __name__ == '__main__':
      main()

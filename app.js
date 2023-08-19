@@ -25,19 +25,30 @@ app.post('/process_link', (req, res) => {
   let output = '';
 
   pythonProcess.stdout.on('data', (data) => {
-    const dataString = data.toString('utf8'); // Convert Buffer to string
+    //const dataString = data.toString('utf8'); // Convert Buffer to string
+
+    //const dataString1 = dataString.toString('utf8')
     
-    const jsonObject = JSON.parse(dataString); // Parse JSON
-    console.log('Received JSON object:', jsonObject);
+    //var jsonObject = JSON.parse(dataString.toString()); // Parse JSON
+    var jsonObject = JSON.parse(data)
     
     output += jsonObject;
-  });
 
-
-  pythonProcess.on('close', (code) => {
+    pythonProcess.on('close', (code) => {
       // Send the Python program's output to the frontend
-      res.json({ result: output });
+      
+      res.json({ result: jsonObject });
   });
+    
+   
+  });
+
+
+  // pythonProcess.on('close', (code) => {
+  //     // Send the Python program's output to the frontend
+      
+  //     res.json({ result: output });
+  // });
 });
 
 

@@ -15,9 +15,20 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
             body: JSON.stringify({ link: link })
         });
         
-        const data = await response.json();
-        console.log("response: ", data)
-        document.getElementById('result').textContent = data.result;
+        //const data = await response.json();
+        const data = await response.json()
+
+    
+        var scores = Object.keys(data.result).map((key) => [key, data.result[key]]);
+
+        //document.getElementById('result').textContent = JSON.stringify(data.result);
+        //document.getElementById('result').textContent = scores
+
+        for (var i=0; i<scores.length; i++) {
+            //document.getElementById('result').append("<td>" + scores[i] + "</td></tr>");
+            document.getElementById('result').append(scores[i]);
+          }
+    
 
     } catch (error) {
         console.error('Error:', error);
