@@ -15,22 +15,26 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
             body: JSON.stringify({ link: link })
         });
         
-        //const data = await response.json();
+
         const data = await response.json()
 
     
         var scores = Object.keys(data.result).map((key) => [key, data.result[key]]);
-
-        //document.getElementById('result').textContent = JSON.stringify(data.result);
-        //document.getElementById('result').textContent = scores
         var table = document.getElementById('result')
 
         for (var i=0; i<scores.length; i++) {
             var row = table.insertRow(-1)
-            var cell = row.insertCell(0)
-            var score = scores[i]
-            cell.innerHTML = score
-          }
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var score = scores[i].toString()
+
+            var broken = score.split(",")
+            
+            cell1.innerHTML = broken[1]
+            cell2.innerHTML = broken[0]
+            cell3.innerHTML = broken[2]
+        }
     
 
     } catch (error) {

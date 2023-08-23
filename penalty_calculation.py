@@ -8,12 +8,6 @@ import sys
 from flask import Flask, jsonify, request, render_template
 
 WEBSITE_LINK=""
-# WEBSITE_LINK = "https://live-timing.com/race2.php?r=238717&u=0"
-# driver = webdriver.Chrome()
-# driver.get(WEBSITE_LINK)
-# driver.maximize_window()
-
-
 
 F_FACTOR = 0
 LIST_OF_RACERS = []
@@ -241,18 +235,7 @@ def main():
         LIST_OF_RACERS.append(racer)
         POINTS_LIST.append(points)
 
-    #print("All racers scores: ")
-    #PenaltyCalculation.print_scores()
-    #print("PENALTY: ")
-    #print(PenaltyCalculation.calculate_penalty())
-
-    
     print(json.dumps(PenaltyCalculation.all_racers_scores()))
-    #scores = json.dumps(PenaltyCalculation.all_racers_scores())
-    #print("var jsonstr = '{}' ".format(scores) )
-
-
-    #print (PenaltyCalculation.all_racers_scores())
 
 if __name__ == '__main__':
      main()

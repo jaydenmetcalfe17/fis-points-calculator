@@ -25,11 +25,7 @@ app.post('/process_link', (req, res) => {
   let output = '';
 
   pythonProcess.stdout.on('data', (data) => {
-    //const dataString = data.toString('utf8'); // Convert Buffer to string
 
-    //const dataString1 = dataString.toString('utf8')
-    
-    //var jsonObject = JSON.parse(dataString.toString()); // Parse JSON
     var jsonObject = JSON.parse(data)
     
     output += jsonObject;
@@ -38,21 +34,9 @@ app.post('/process_link', (req, res) => {
       // Send the Python program's output to the frontend
       
       res.json({ result: jsonObject });
+    });
   });
-    
-   
-  });
-
-
-  // pythonProcess.on('close', (code) => {
-  //     // Send the Python program's output to the frontend
-      
-  //     res.json({ result: output });
-  // });
 });
-
-
-  
 
 app.listen(port, () => {
     console.log("Server started on port", port);

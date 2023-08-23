@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background: lightblue;
+    gap: 2rem;
+}
+
+@font-face {
+    font-family: spicyPizza;
+    src: url(css/spicy_pizza/Spicy-Pizza.ttf);
+}
+
+.fis-title{
+    font-family: spicyPizza;
+}
+
+.title-box{
+    display: flex;
+    justify-content: center;
+}
+
+#linkForm{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.box-button{
+    display: flex;
+    gap: 0.5rem;
+}
+
+label {
+    margin-bottom: 0;
+    font-family: spicyPizza;
+    align-items: flex-start;
+}
+
+input {
+    border-radius: 0.25rem;
+    border: 0;
+    height: 2.3rem;
+    font-size: 1rem;
+    padding-left: 0.75rem;
+}
+
+#calculate{
+    background-color: #004791;
+    border-color: #004791;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+}
+
+.results-title{
+    display: flex;
+    justify-content: center;
+    font-family: spicyPizza;
+}
+
+td{
+    padding: 0.5rem;
+}
