@@ -7,3 +7,4 @@ nodemon app.js
 
 
 ### only for GS and SL races, NOT Super G or Downhill or one run events ###
+### Works for Google Chrome 114 ###
