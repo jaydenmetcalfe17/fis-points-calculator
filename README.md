@@ -4,7 +4,7 @@ Currently, there are no public applications where racers can see their scores im
 
 **Compatible with Chrome version 114**\
 **Only for SL or GS races, not designed for single run events such as Super G or Downhill**\
-**Link must be from live-timing.com**\
+**Link must be from live-timing.com**
 
 ## Installation ##
 ```
