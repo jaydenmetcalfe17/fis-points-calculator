@@ -16,3 +16,7 @@ To start the server run the following command:
 ```
 nodemon app.js
 ```
+Currently, the program requires Chromedriver to be installed on the local device as Selenium Manager was not automatically downloading the appropriate driver. Please ensure to update the correct path to the Chromedriver in penalty_calculation.py
+
+## Last Updated ##
+December 27, 2023
