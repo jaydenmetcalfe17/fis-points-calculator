@@ -9,6 +9,10 @@ Currently, there are no public applications where racers can see their scores im
 ```
 npm install body-parser express child_process nodemon
 ```
+OR
+```
+npm install
+```
 
 
 ## Usage ##
