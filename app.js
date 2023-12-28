@@ -32,11 +32,11 @@ app.post('/process_link', (req, res) => {
 
     pythonProcess.on('close', (code) => {
       // Send the Python program's output to the frontend
-      
       res.json({ result: jsonObject });
     });
   });
 });
+
 
 app.listen(port, () => {
     console.log("Server started on port", port);

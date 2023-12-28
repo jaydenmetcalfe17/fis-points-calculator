@@ -2,20 +2,25 @@
 from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 import json
 import sys
 
 from flask import Flask, jsonify, request, render_template
 
-WEBSITE_LINK=""
+## Due to version compatibility issues, ChromeDriver is manually installed since Selenium Manager is not currently working
+
+##UPDATE CHROME DRIVER PATH SPECIFIC TO DEVICE 
+chrome_driver_path = "/Users/Jayden/Desktop/chromedriver-mac-x64/chromedriver"
+chrome_service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=chrome_service)
+#WEBSITE_LINK=""
 
 F_FACTOR = 0
 LIST_OF_RACERS = []
 POINTS_LIST = []
 TIMES_LIST = []
 NAMES_LIST = []
-driver = webdriver.Chrome()
-
 
 
 
@@ -150,9 +155,7 @@ class PenaltyCalculation:
         b = PenaltyCalculation.calculateB()
         c = PenaltyCalculation.calculateC()
  
-        category_adder = 3
         penalty = (a + b - c) / 10
-        penalty += category_adder
         return round(penalty, 2)
 
     def calculate_score(racer):
@@ -176,32 +179,39 @@ class PenaltyCalculation:
             print(": ".join([racer, str(scores.get(racer))]))
 
 
-    def process_link(link):
-        processed_result = f"Processed link: {link.upper()}"
-        return processed_result
+    # def process_link(link):
+    #     processed_result = f"Processed link: {link.upper()}"
+    #     return processed_result
 
     
 def main():
 
     WEBSITE_LINK = sys.argv[1]
-    #WEBSITE_LINK = "https://live-timing.com/race2.php?r=238717&u=0"
-    #processed_result = PenaltyCalculation.process_link(WEBSITE_LINK)
-    #print(type(WEBSITE_LINK))
+    #WEBSITE_LINK = "https://live-timing.com/race2.php?r=253961"
 
-    #driver = webdriver.Chrome()
+
     driver.get(WEBSITE_LINK)
+    driver.implicitly_wait(0.5)
     driver.maximize_window()
+    driver.implicitly_wait(0.5)
 
     rows = driver.find_elements(By.CLASS_NAME, "table")
     names_list_length = (len(rows))
 
     i = 2
     while (i < names_list_length + 2):
-        name_element = driver.find_element(By.XPATH, str(i).join(["//*[@id='resultTable']/tbody/tr[","]/td[3]/div"]))
+        if (i == 12):
+            i+=1
+            continue
+        
+        bib_element = driver.find_element(By.XPATH, str(i).join(["//*[@id='resultTable']/tbody/tr[","]/td[2]/div"]))
                 
         actions = ActionChains(driver)
-        points_mover = actions.move_to_element(name_element).perform()
-        points_element = driver.find_element(By.XPATH, "//*[@id='dhtmltooltip']/table/tbody/tr[3]/td[3]/font")
+        points_mover = actions.move_to_element(bib_element).perform()
+        points_element = driver.find_element(By.XPATH, "//*[@id='tooltip']/table/tbody/tr[5]/td[3]/font")
+        name_element = driver.find_element(By.XPATH, "//*[@id='tooltip']/table/tbody/tr[1]/td[2]/font")
+
+
         points = float(points_element.text)
 
         name = name_element.text.strip()

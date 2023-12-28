@@ -14,10 +14,8 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
             },
             body: JSON.stringify({ link: link })
         });
-        
 
         const data = await response.json()
-
     
         var scores = Object.keys(data.result).map((key) => [key, data.result[key]]);
         var table = document.getElementById('result')
