@@ -11,7 +11,7 @@ from flask import Flask, jsonify, request, render_template
 ## Due to version compatibility issues, ChromeDriver is manually installed since Selenium Manager is not currently working
 
 ##UPDATE CHROME_DRIVER_PATH SPECIFIC TO DEVICE 
-chrome_driver_path = ""
+chrome_driver_path = "/Users/Jayden/Desktop/chromedriver-mac-x64/chromedriver"
 chrome_service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=chrome_service)
 
