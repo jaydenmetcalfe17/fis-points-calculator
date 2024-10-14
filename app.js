@@ -101,7 +101,7 @@ app.post('/process_link', async (req, res) => {
       lineCount++
     }
   
-    // console.log(JSON.stringify(comps), discipline);
+    console.log(JSON.stringify(comps), discipline);
   
 
     // Spawn a Python process and capture its output

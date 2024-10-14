@@ -22,19 +22,24 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
     
         var scores = Object.keys(data.result).map((key) => [key, data.result[key]]);
         var table = document.getElementById('result')
+        var rank = 1
 
         for (var i=0; i<scores.length; i++) {
             var row = table.insertRow(-1)
             var cell1 = row.insertCell(0)
             var cell2 = row.insertCell(1)
             var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
             var score = scores[i].toString()
 
             var broken = score.split(",")
             
-            cell1.innerHTML = broken[1]
-            cell2.innerHTML = broken[0]
-            cell3.innerHTML = broken[2]
+            cell1.innerHTML = rank
+            cell2.innerHTML = broken[1]
+            cell3.innerHTML = broken[0]
+            cell4.innerHTML = broken[2]
+            
+            rank += 1
         }
     
 

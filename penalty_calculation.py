@@ -97,7 +97,11 @@ class PenaltyCalculation:
         return round(penalty, 2)
 
     def calculate_score(self, racer):
-        if (racer.r2 in ["DNF", "DQ", "DNS"]):
+        if (self.discipline in ["Super G", "Downhill"]):
+            if (racer.r1 in ["DNF", "DQ", "DNS"]):
+                return racer.r1
+            
+        elif (racer.r2 in ["DNF", "DQ", "DNS"]):
             return racer.r2
         
         penalty = self.calculate_penalty()
@@ -141,7 +145,6 @@ def main():
         racers_list.append(racer)
 
     penalty_calculation = PenaltyCalculation(racers_list, DISCIPLINE, times_list)
-    # print(penalty_calculation.print_scores())
     print(json.dumps(penalty_calculation.all_racers_scores()))
 
 if __name__ == '__main__':
