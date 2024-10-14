@@ -20,6 +20,7 @@ To start the server run the following command:
 ```
 nodemon app.js
 ```
+Then you can access locally via local host 3000 in your browser
 
 ## Last Updated ##
 October 14, 2024
