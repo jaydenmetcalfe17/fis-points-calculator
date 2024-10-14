@@ -3,6 +3,9 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
 
   // Get the input link
   const link = document.getElementById('linkInput').value;
+  const url = new URL(link)
+  const params = new URLSearchParams(url.search)
+  const r = params.get('r')
   console.log('Link submitted:', link);
 
   // Send the link to the Python program using an API call
@@ -12,7 +15,7 @@ document.getElementById('linkForm').addEventListener('submit', async function(ev
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ link: link })
+            body: JSON.stringify({ link: link, r: r })
         });
 
         const data = await response.json()
